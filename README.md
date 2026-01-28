@@ -5,59 +5,6 @@
 ![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?style=flat-square&logo=tailwindcss)
 
-[English](./README.md) | [中文](./README_CN.md)
-
-A high-fidelity, interactive web generator for the [reinstall.sh](https://github.com/bin456789/reinstall) script. This project aims to simplify the complexity of server reinstallation by providing a visual, point-and-click interface to generate the exact command you need.
-
-## ✨ Features
-
-- **Visual Configuration**: Toggle switches and dropdowns instead of reading long manuals.
-- **Real-time Preview**: See the generated command update instantly as you change settings.
-- **Apple HIG Design**: A beautiful, dark-themed interface inspired by macOS and Vitesse.
-- **Comprehensive Support**: Covers all features of the script including Linux distros, Windows ISOs, DD images, Rescue mode, and Netboot.xyz.
-- **Validation**: Ensures you don't miss required parameters like image URLs or passwords.
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Vue 3](https://vuejs.org/) (Composition API)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [Shadcn-vue](https://www.shadcn-vue.com/) (Radix Vue)
-- **Syntax Highlighting**: [Shiki](https://shiki.style/)
-
-## 🚀 Development
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm
-
-### Setup
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-```
-
-### Build
-
-```bash
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-```
-
-## 📄 License
-
-This project is licensed under the [MIT License](./LICENSE).
-
----
-
 ## 介绍
 
 这是一个为 [reinstall.sh](https://github.com/bin456789/reinstall) 脚本设计的高保真交互式 Web 生成器。本项目的目标是通过提供可视化的点击界面，简化服务器重装的复杂性，帮助用户快速生成所需的精确命令。
@@ -108,3 +55,7 @@ pnpm preview
 ## 📄 许可证
 
 本项目采用 [MIT 许可证](./LICENSE) 进行授权。
+
+## 💗 感谢
+- [reinstall.sh](https://github.com/bin456789/reinstall) 项目的作者和维护者。
+
