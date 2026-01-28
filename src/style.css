@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+:root {
+  --background: 0 0% 7%; /* #121212 - Deep Dark */
+  --foreground: 0 0% 100%;
+  
+  --card: 0 0% 9%; /* Slightly lighter than bg */
+  --card-foreground: 0 0% 100%;
+ 
+  --popover: 0 0% 9%;
+  --popover-foreground: 0 0% 100%;
+ 
+  --primary: 170 60% 50%; /* Soft Teal */
+  --primary-foreground: 0 0% 100%;
+ 
+  --secondary: 260 50% 60%; /* Muted Purple */
+  --secondary-foreground: 0 0% 100%;
+ 
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+ 
+  --accent: 170 60% 50%;
+  --accent-foreground: 0 0% 100%;
+ 
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+ 
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 170 60% 50%;
+ 
+  --radius: 0.75rem;
+}
+ 
+.dark {
+  --background: 0 0% 7%;
+  --foreground: 0 0% 100%;
+  /* Same as root since we are forcing dark mode mostly */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-card {
+  @apply bg-[#1e1e1e]/80 backdrop-blur-xl border border-white/10 shadow-xl;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
