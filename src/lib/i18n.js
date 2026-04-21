@@ -5,6 +5,9 @@ const translations = {
   en: {
     title: "Reinstall Web",
     subtitle: "System Reinstallation Generator",
+    seoTitle: "Reinstall Web | System Reinstallation Generator",
+    seoDescription: "Generate reinstall.sh commands for VPS and dedicated servers. Supports Linux, Windows, DD, rescue mode, and Netboot.xyz.",
+    seoKeywords: "reinstall.sh, server reinstall, VPS reinstall, Linux installer, Windows installer, Netboot.xyz, DD image",
     github: "GitHub",
     generatedCommand: "Generated Command",
     generatedCommandDesc: "Run this command in your server's terminal (SSH) to start the reinstallation.",
@@ -69,11 +72,100 @@ const translations = {
     sshKeyPlaceholder: "ssh-rsa AAAAB3...",
     isoUrlPlaceholder: "https://...",
     imageUrlPlaceholder: "https://example.com/image.raw.xz",
-    winImageNamePlaceholder: "Windows 11 Enterprise LTSC 2024"
+    winImageNamePlaceholder: "Windows 11 Enterprise LTSC 2024",
+
+    // Network Config Section
+    networkConfig: "Network Configuration",
+    networkConfigDesc: "Static IP or DHCP settings",
+    ipAddress: "IP Address",
+    ipAddressPlaceholder: "192.168.1.100",
+    gateway: "Gateway",
+    gatewayPlaceholder: "192.168.1.1",
+    netmask: "Netmask",
+    netmaskPlaceholder: "255.255.255.0",
+    dnsServer: "DNS Server",
+    dnsServerPlaceholder: "8.8.8.8",
+    ipv6Address: "IPv6 Address",
+    ipv6AddressPlaceholder: "2001:db8::1",
+    ipv6Gateway: "IPv6 Gateway",
+    ipv6GatewayPlaceholder: "2001:db8::ff",
+    ipv6Dns: "IPv6 DNS",
+    ipv6DnsPlaceholder: "2001:4860:4860::8888",
+    dhcpAuto: "DHCP (Auto)",
+    dhcpAutoDesc: "Automatically get IP via DHCP",
+    macAddress: "MAC Address",
+    macAddressPlaceholder: "00:11:22:33:44:55",
+
+    // Disk Config Section
+    diskConfig: "Disk Configuration",
+    diskConfigDesc: "Target disk and partition settings",
+    targetDisk: "Target Disk",
+    targetDiskPlaceholder: "/dev/sda",
+    bootPartition: "Boot Partition",
+    bootPartitionPlaceholder: "/dev/sda1",
+    resetBtrfs: "Reset BTRFS",
+    resetBtrfsDesc: "Reset BTRFS subvolumes",
+    resetLvm: "Reset LVM",
+    resetLvmDesc: "Reset LVM volumes",
+
+    // Linux Advanced
+    linuxAdvanced: "Linux Advanced",
+    customMirror: "Custom Mirror",
+    customMirrorPlaceholder: "https://mirror.example.com",
+    grubDevice: "GRUB Device",
+    grubDevicePlaceholder: "/dev/sda",
+    consoleOutput: "Console Output",
+    consoleOutputPlaceholder: "tty0",
+    cloudKernel: "Cloud Kernel",
+    cloudKernelDesc: "Use cloud-optimized kernel",
+
+    // Windows Advanced
+    windowsAdvanced: "Windows Advanced",
+    virtioDrivers: "VirtIO Drivers URL",
+    virtioDriversPlaceholder: "https://example.com/virtio.iso",
+    virtioIso: "VirtIO ISO",
+    virtioIsoPlaceholder: "https://example.com/virtio.iso",
+    autoLogin: "Auto Login",
+    autoLoginDesc: "Enable administrator auto-login",
+    domainJoin: "Domain Join",
+    domainJoinPlaceholder: "domain.example.com",
+
+    // DD Advanced
+    ddAdvanced: "DD Advanced",
+    imagePassword: "Image Password",
+    imagePasswordDesc: "Decryption password for encrypted image",
+    imageKey: "Image Key",
+    imageKeyDesc: "Decryption key for encrypted image",
+    autoMatch: "Auto Match",
+    autoMatchPlaceholder: "Match patterns",
+
+    // Other Options
+    otherOptions: "Other Options",
+    skipDd: "Skip DD",
+    skipDdDesc: "Skip DD installation step",
+    noReboot: "No Reboot",
+    noRebootDesc: "Do not reboot after installation",
+    debugMode: "Debug Mode",
+    debugModeDesc: "Enable verbose debug output",
+    cancelInstall: "Cancel Installation",
+    cancelInstallDesc: "Cancel pending reinstallation (run on existing system)",
+
+    // Sections
+    sectionNetwork: "Network",
+    sectionDisk: "Disk",
+    sectionAdvanced: "Advanced",
+    sectionOther: "Other",
+
+    // Network Warning
+    networkWarningTitle: "Manual Config Risk",
+    networkWarningDesc: "Manual IP configuration may cause connection loss if the settings are incorrect. Please verify your network information before proceeding."
   },
   zh: {
     title: "Reinstall Web",
     subtitle: "系统重装脚本代码生成器",
+    seoTitle: "Reinstall Web | 系统重装脚本代码生成器",
+    seoDescription: "为 VPS 和独立服务器生成 reinstall.sh 重装命令。支持 Linux、Windows、DD、救援模式和 Netboot.xyz。",
+    seoKeywords: "reinstall.sh, 服务器重装, VPS 重装, Linux 安装器, Windows 安装器, Netboot.xyz, DD 镜像",
     github: "GitHub",
     generatedCommand: "生成命令",
     generatedCommandDesc: "在服务器终端 (SSH) 运行此命令以开始重装。",
@@ -138,7 +230,93 @@ const translations = {
     sshKeyPlaceholder: "ssh-rsa AAAAB3...",
     isoUrlPlaceholder: "https://...",
     imageUrlPlaceholder: "https://example.com/image.raw.xz",
-    winImageNamePlaceholder: "Windows 11 Enterprise LTSC 2024"
+    winImageNamePlaceholder: "Windows 11 Enterprise LTSC 2024",
+
+    // Network Config Section
+    networkConfig: "网络配置",
+    networkConfigDesc: "静态 IP 或 DHCP 设置",
+    ipAddress: "IP 地址",
+    ipAddressPlaceholder: "192.168.1.100",
+    gateway: "网关",
+    gatewayPlaceholder: "192.168.1.1",
+    netmask: "子网掩码",
+    netmaskPlaceholder: "255.255.255.0",
+    dnsServer: "DNS 服务器",
+    dnsServerPlaceholder: "8.8.8.8",
+    ipv6Address: "IPv6 地址",
+    ipv6AddressPlaceholder: "2001:db8::1",
+    ipv6Gateway: "IPv6 网关",
+    ipv6GatewayPlaceholder: "2001:db8::ff",
+    ipv6Dns: "IPv6 DNS",
+    ipv6DnsPlaceholder: "2001:4860:4860::8888",
+    dhcpAuto: "DHCP (自动)",
+    dhcpAutoDesc: "通过 DHCP 自动获取 IP",
+    macAddress: "MAC 地址",
+    macAddressPlaceholder: "00:11:22:33:44:55",
+
+    // Disk Config Section
+    diskConfig: "磁盘配置",
+    diskConfigDesc: "目标磁盘和分区设置",
+    targetDisk: "目标磁盘",
+    targetDiskPlaceholder: "/dev/sda",
+    bootPartition: "引导分区",
+    bootPartitionPlaceholder: "/dev/sda1",
+    resetBtrfs: "重置 BTRFS",
+    resetBtrfsDesc: "重置 BTRFS 子卷",
+    resetLvm: "重置 LVM",
+    resetLvmDesc: "重置 LVM 卷",
+
+    // Linux Advanced
+    linuxAdvanced: "Linux 高级选项",
+    customMirror: "自定义镜像源",
+    customMirrorPlaceholder: "https://mirror.example.com",
+    grubDevice: "GRUB 设备",
+    grubDevicePlaceholder: "/dev/sda",
+    consoleOutput: "控制台输出",
+    consoleOutputPlaceholder: "tty0",
+    cloudKernel: "云内核",
+    cloudKernelDesc: "使用云优化内核",
+
+    // Windows Advanced
+    windowsAdvanced: "Windows 高级选项",
+    virtioDrivers: "VirtIO 驱动链接",
+    virtioDriversPlaceholder: "https://example.com/virtio.iso",
+    virtioIso: "VirtIO ISO",
+    virtioIsoPlaceholder: "https://example.com/virtio.iso",
+    autoLogin: "自动登录",
+    autoLoginDesc: "启用管理员自动登录",
+    domainJoin: "加域",
+    domainJoinPlaceholder: "domain.example.com",
+
+    // DD Advanced
+    ddAdvanced: "DD 高级选项",
+    imagePassword: "镜像密码",
+    imagePasswordDesc: "加密镜像解密密码",
+    imageKey: "镜像密钥",
+    imageKeyDesc: "加密镜像解密密钥",
+    autoMatch: "自动匹配",
+    autoMatchPlaceholder: "匹配模式",
+
+    // Other Options
+    otherOptions: "其他选项",
+    skipDd: "跳过 DD",
+    skipDdDesc: "跳过 DD 安装步骤",
+    noReboot: "禁止重启",
+    noRebootDesc: "安装后不重启",
+    debugMode: "调试模式",
+    debugModeDesc: "启用详细调试输出",
+    cancelInstall: "取消重装",
+    cancelInstallDesc: "取消待执行的重装 (在现有系统上运行)",
+
+    // Sections
+    sectionNetwork: "网络",
+    sectionDisk: "磁盘",
+    sectionAdvanced: "高级",
+    sectionOther: "其他",
+
+    // Network Warning
+    networkWarningTitle: "手动配置风险",
+    networkWarningDesc: "手动配置 IP 地址可能导致失联，如设置错误将无法连接服务器。请务必确认网络信息准确后再执行！"
   }
 }
 

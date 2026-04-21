@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import ConfigPanel from './components/ConfigPanel.vue'
 import TerminalPreview from './components/TerminalPreview.vue'
 import { Terminal, Github, Languages } from 'lucide-vue-next'
@@ -7,6 +7,71 @@ import { useI18n } from '@/lib/i18n'
 
 const { t, toggleLocale, locale } = useI18n()
 const command = ref('bash reinstall.sh debian 12')
+const siteUrl = import.meta.env.VITE_SITE_URL || ''
+
+const pageTitle = computed(() => t('seoTitle'))
+const pageDescription = computed(() => t('seoDescription'))
+const pageKeywords = computed(() => t('seoKeywords'))
+
+watchEffect(() => {
+  if (typeof document === 'undefined') return
+
+  document.title = pageTitle.value
+  document.documentElement.lang = locale.value === 'zh' ? 'zh-CN' : 'en'
+
+  const canonicalBase = siteUrl || window.location.origin
+  const canonicalUrl = `${canonicalBase.replace(/\/$/, '')}/`
+
+  const setMeta = (selector, key, value) => {
+    let tag = document.head.querySelector(selector)
+    if (!tag) {
+      tag = document.createElement('meta')
+      const match = selector.match(/\[(name|property)="([^"]+)"\]/)
+      if (match) tag.setAttribute(match[1], match[2])
+      document.head.appendChild(tag)
+    }
+    tag.setAttribute('content', value)
+  }
+
+  setMeta('meta[name="description"]', 'name', pageDescription.value)
+  setMeta('meta[name="keywords"]', 'name', pageKeywords.value)
+  setMeta('meta[property="og:title"]', 'property', pageTitle.value)
+  setMeta('meta[property="og:description"]', 'property', pageDescription.value)
+  setMeta('meta[property="og:url"]', 'property', canonicalUrl)
+  setMeta('meta[name="twitter:title"]', 'name', pageTitle.value)
+  setMeta('meta[name="twitter:description"]', 'name', pageDescription.value)
+
+  const canonicalLink = document.head.querySelector('link[rel="canonical"]') || document.createElement('link')
+  canonicalLink.setAttribute('rel', 'canonical')
+  canonicalLink.setAttribute('href', canonicalUrl)
+  if (!canonicalLink.isConnected) {
+    document.head.appendChild(canonicalLink)
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: pageTitle.value,
+    description: pageDescription.value,
+    url: canonicalUrl,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  }
+
+  let script = document.head.querySelector('script[data-seo-jsonld="true"]')
+  if (!script) {
+    script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.dataset.seoJsonld = 'true'
+    document.head.appendChild(script)
+  }
+  script.textContent = JSON.stringify(jsonLd)
+})
 </script>
 
 <template>
